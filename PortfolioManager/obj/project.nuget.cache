@@ -1,0 +1,13 @@
+{
+  "version": 2,
+  "dgSpecHash": "dzvJKM1HYwITOQAGBD6v6rkAdXZRy2tuuUOuK21/V3+KpacT+XU5N2xXhuBUQc5RCekIXm2eRyEn59t5RQ5i6Q==",
+  "success": true,
+  "projectFilePath": "C:\\Users\\anism\\Documents\\GitHub\\PortfolioManager\\PortfolioManager\\PortfolioManager.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\anism\\.nuget\\packages\\htmlagilitypack\\1.11.61\\htmlagilitypack.1.11.61.nupkg.sha512",
+    "C:\\Users\\anism\\.nuget\\packages\\microsoft.win32.systemevents\\8.0.0\\microsoft.win32.systemevents.8.0.0.nupkg.sha512",
+    "C:\\Users\\anism\\.nuget\\packages\\ssh.net\\2024.0.0\\ssh.net.2024.0.0.nupkg.sha512",
+    "C:\\Users\\anism\\.nuget\\packages\\system.drawing.common\\8.0.6\\system.drawing.common.8.0.6.nupkg.sha512"
+  ],
+  "logs": []
+}
