@@ -6,6 +6,7 @@
     <Nullable>enable</Nullable>
     <ImplicitUsings>enable</ImplicitUsings>
     <UseWPF>true</UseWPF>
+    <BaseOutputPath>C:\Users\anism\Documents\Visual Studio Builds\PortfolioManager</BaseOutputPath>
   </PropertyGroup>
 
   <ItemGroup>

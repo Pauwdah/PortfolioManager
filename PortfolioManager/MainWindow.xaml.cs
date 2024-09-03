@@ -22,6 +22,7 @@ using System.Reflection;
 using System.Windows.Data;
 using System.DirectoryServices.ActiveDirectory;
 using System.Windows.Media;
+using System.Windows.Media.Animation;
 
 namespace PortfolioManager
 {
@@ -29,11 +30,9 @@ namespace PortfolioManager
     {
         public static List<string> FilterList { get; set; } = new List<string>();
         public static List<ItemCard> ItemCardList = new List<ItemCard>();
-        //public static SolidColorBrush DefaultBorderColor = new SolidColorBrush((System.Windows.Media.Color)System.Windows.Media.ColorConverter.ConvertFromString("#FF333333"));
-        //public static SolidColorBrush DefaultItemBackgroundColor = new SolidColorBrush((System.Windows.Media.Color)System.Windows.Media.ColorConverter.ConvertFromString("#FFCCCCCC"));
         public static string DefaultBorderColor = "#FF333333";
         public static string DefaultItemBackgroundColor = "#FFCCCCCC";
-        
+        public static bool isPasswordSaved = false;
 
 
     }
@@ -319,8 +318,11 @@ namespace PortfolioManager
         }
     }
 
+
     public partial class MainWindow : Window
     {
+
+
         private LoginPopup login = new LoginPopup();
         
         
@@ -342,6 +344,7 @@ namespace PortfolioManager
 
         public MainWindow()
         {
+            this.Closing += ExitApplication;
             InitializeComponent();
             OpenLoginWindow();
             Login();
@@ -453,7 +456,7 @@ namespace PortfolioManager
                                         {
                                             itemCard.Src = img.GetAttributeValue("src", string.Empty);
                                             itemCard.Full = img.GetAttributeValue("data-full", string.Empty);
-                                            Debug.Write("Fullscale Path: " + itemCard.Full);
+                                            
 
 
 
@@ -858,10 +861,51 @@ namespace PortfolioManager
         }
 
 
+        
         private void ExitApplication_Click(object sender, RoutedEventArgs e)
         {
+            if (!SharedData.isPasswordSaved)
+            {
+                string registryPath = @"Software\Pauwdah\PortfolioManager";
+
+                // Remove stored password
+                using (RegistryKey key = Registry.CurrentUser.OpenSubKey(registryPath, true))
+                {
+                    if (key != null)
+                    {
+                        key.DeleteValue("EncryptedPassword");
+                        Debug.WriteLine("EncryptedPassword deleted successfully.");
+
+                    }
+                }
+            }
+            Application.Current.Dispatcher.InvokeShutdown();
+
             Application.Current.Shutdown();
         }
+        private void ExitApplication(object sender, System.ComponentModel.CancelEventArgs e)
+        {
+            if (!SharedData.isPasswordSaved)
+            {
+                string registryPath = @"Software\Pauwdah\PortfolioManager";
+
+                // Remove stored password
+                using (RegistryKey key = Registry.CurrentUser.OpenSubKey(registryPath, true))
+                {
+                    if (key != null)
+                    {
+                        key.DeleteValue("EncryptedPassword");
+                        Debug.WriteLine("EncryptedPassword deleted successfully.");
+
+                    }
+                }
+            }
+            Debug.WriteLine("Password beeing stored: " + SharedData.isPasswordSaved);
+            Application.Current.Dispatcher.InvokeShutdown();
+
+            Application.Current.Shutdown();
+        }
+
 
         #endregion
 
@@ -911,6 +955,8 @@ namespace PortfolioManager
             previewImage.Dispose();
         }
         #endregion
+
+       
     }
 
 }

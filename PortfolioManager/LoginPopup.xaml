@@ -7,7 +7,7 @@
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     Title="Login"
     Width="220"
-    Height="200"
+    Height="240"
     mc:Ignorable="d">
 
     <StackPanel x:Name="LoginPopupStack">
@@ -19,8 +19,16 @@
         <PasswordBox
             x:Name="PasswordBox"
             Width="186"
-            Height="16" />
+            Height="16"
+            KeyDown="PasswordBox_KeyDown" />
+        <RadioButton
+            x:Name="SavePasswordCheckBox"
+            Width="184"
+            Margin="0,5,0,0"
+            Click="SavePasswordCheckBox_Click"
+            Content="Save password" />
         <Button
+            x:Name="LoginButton"
             Width="60"
             Margin="0,10,0,0"
             Click="LoginButton_Click"

@@ -4,17 +4,17 @@
 winexe
 C#
 .cs
-C:\Users\anism\source\repos\PortfolioManager\PortfolioManager\obj\Release\net8.0-windows\
+C:\Users\anism\Documents\GitHub\PortfolioManager\PortfolioManager\obj\Release\net8.0-windows\
 PortfolioManager
 none
 false
 TRACE;RELEASE;NET;NET8_0;NETCOREAPP
-C:\Users\anism\source\repos\PortfolioManager\PortfolioManager\App.xaml
-2943964209
+C:\Users\anism\Documents\GitHub\PortfolioManager\PortfolioManager\App.xaml
+3-1169526018
 
-7510739069
+8-1972805502
 201-58313418
-FilterPopup.xaml;MainWindow.xaml;
+FilterPopup.xaml;LoginPopup.xaml;MainWindow.xaml;
 
-True
+False
 

@@ -1,6 +1,7 @@
 ﻿using Microsoft.Win32;
 using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using System.Security.Cryptography;
 using System.Text;
@@ -22,6 +23,8 @@ namespace PortfolioManager
     public partial class LoginPopup : Window
     {
 
+        
+
         public LoginPopup()
         {
             InitializeComponent();
@@ -30,7 +33,15 @@ namespace PortfolioManager
             {
                 HostTextBox.Text = RetrieveAndDecryptHost();
                 UsernameTextBox.Text = RetrieveAndDecryptUsername();
-                
+
+                if (RetrieveAndDecryptPassword() != null)
+                {
+                    Debug.WriteLine("Password is not null");
+                    PasswordBox.Password = RetrieveAndDecryptPassword();
+                    SavePasswordCheckBox.IsChecked = true;
+                    SharedData.isPasswordSaved = true;
+                }
+
             }
             catch (Exception ex)
             {
@@ -45,13 +56,46 @@ namespace PortfolioManager
             {
                 rng.GetBytes(entropy);
             }
-            byte[] cipherHost = ProtectedData.Protect(Encoding.UTF8.GetBytes(HostTextBox.Text), entropy, DataProtectionScope.CurrentUser);
-            byte[] cipherUser = ProtectedData.Protect(Encoding.UTF8.GetBytes(UsernameTextBox.Text), entropy, DataProtectionScope.CurrentUser);
-            byte[] cipherPass = ProtectedData.Protect(Encoding.UTF8.GetBytes(PasswordBox.Password), entropy, DataProtectionScope.CurrentUser);
+            
+            
             // Define the registry path
             string registryPath = @"Software\Pauwdah\PortfolioManager";
+            using (RegistryKey key = Registry.CurrentUser.CreateSubKey(registryPath))
+            {
+                if (key != null)
+                {
+                   
+                    key.SetValue("Entropy", entropy, RegistryValueKind.Binary);
+                    
+                    StoreEncryptedHostAndUserInRegistry(entropy, registryPath);
+                    StoreEncryptedPasswordInRegistry(entropy, registryPath);
+                    
+                    
+                   
+                }
+            }
+        }
+        private void StoreEncryptedPasswordInRegistry(byte[] entropy, string registryPath)
+        {
+            byte[] cipherPass = ProtectedData.Protect(Encoding.UTF8.GetBytes(PasswordBox.Password), entropy, DataProtectionScope.CurrentUser);
 
-            // Open or create the key in HKEY_CURRENT_USER
+            using (RegistryKey key = Registry.CurrentUser.CreateSubKey(registryPath))
+            {
+                if (key != null)
+                {
+                    
+                    key.SetValue("EncryptedPassword", cipherPass, RegistryValueKind.Binary);
+                    
+                }
+            }
+
+        }
+
+        private void StoreEncryptedHostAndUserInRegistry(byte[] entropy, string registryPath)
+        {
+            byte[] cipherHost = ProtectedData.Protect(Encoding.UTF8.GetBytes(HostTextBox.Text), entropy, DataProtectionScope.CurrentUser);
+            byte[] cipherUser = ProtectedData.Protect(Encoding.UTF8.GetBytes(UsernameTextBox.Text), entropy, DataProtectionScope.CurrentUser);
+
             using (RegistryKey key = Registry.CurrentUser.CreateSubKey(registryPath))
             {
                 if (key != null)
@@ -59,13 +103,13 @@ namespace PortfolioManager
                     // Store the ciphertext and entropy as binary data
                     key.SetValue("Host", cipherHost, RegistryValueKind.Binary);
                     key.SetValue("Username", cipherUser, RegistryValueKind.Binary);
-                    key.SetValue("EncryptedPassword", cipherPass, RegistryValueKind.Binary);
-                    key.SetValue("Entropy", entropy, RegistryValueKind.Binary);
-                    
-                    
                 }
             }
+
         }
+
+
+
         public string RetrieveAndDecryptHost()
         {
             string registryPath = @"Software\Pauwdah\PortfolioManager";
@@ -130,9 +174,29 @@ namespace PortfolioManager
             return null;
         }
 
+        private void SavePasswordCheckBox_Click(object sender, RoutedEventArgs e)
+        {
+            
+            
+            SharedData.isPasswordSaved = !SharedData.isPasswordSaved;
+
+            Debug.WriteLine("Save password: " + SharedData.isPasswordSaved);
+
+            SavePasswordCheckBox.IsChecked = SharedData.isPasswordSaved;
+
+
+        }
+
+        private void PasswordBox_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.Key == Key.Enter)
+            {
+                LoginButton.RaiseEvent(new RoutedEventArgs(Button.ClickEvent));
+            }
+        }
 
         
-        
+      
 
         private void LoginButton_Click(object sender, RoutedEventArgs e)
         {
