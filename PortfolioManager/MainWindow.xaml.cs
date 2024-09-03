@@ -344,10 +344,21 @@ namespace PortfolioManager
 
         public MainWindow()
         {
-            this.Closing += ExitApplication;
+            
             InitializeComponent();
             OpenLoginWindow();
-            Login();
+
+            if (login.RetrieveAndDecryptHost() == null || login.RetrieveAndDecryptUsername() == null || login.RetrieveAndDecryptPassword() == null)
+            {
+                
+                Application.Current.Shutdown();
+            }
+            else
+            {
+                this.Closing += ExitApplication;
+                Login();
+            }
+            
         }
 
         private void OpenLoginWindow()
@@ -504,7 +515,9 @@ namespace PortfolioManager
                         catch (Exception ex)
                         {
                             MessageBox.Show($"Error Logging in: {ex.Message}");
-                            ;
+                            
+                            
+
                         }
                         
                         sftp.Disconnect();
@@ -514,6 +527,7 @@ namespace PortfolioManager
             catch (Exception ex)
             {
                 MessageBox.Show($"Error Logging in: {ex.Message}");
+                
             }
 
 
@@ -859,9 +873,14 @@ namespace PortfolioManager
             OpenLoginWindow();
             ReloadUI();
         }
+        private void LoginButton_Click(object sender, RoutedEventArgs e)
+        {
+            OpenLoginWindow();
+            Login();
+        }
 
 
-        
+
         private void ExitApplication_Click(object sender, RoutedEventArgs e)
         {
             if (!SharedData.isPasswordSaved)

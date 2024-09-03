@@ -28,7 +28,7 @@ namespace PortfolioManager
         public LoginPopup()
         {
             InitializeComponent();
-
+            
             try
             {
                 HostTextBox.Text = RetrieveAndDecryptHost();

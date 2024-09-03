@@ -78,3 +78,4 @@ C:\Users\anism\Documents\GitHub\PortfolioManager\PortfolioManager\obj\Debug\net8
 C:\Users\anism\Documents\GitHub\PortfolioManager\PortfolioManager\obj\Debug\net8.0-windows\PortfolioManager.genruntimeconfig.cache
 C:\Users\anism\Documents\GitHub\PortfolioManager\PortfolioManager\obj\Debug\net8.0-windows\ref\PortfolioManager.dll
 C:\Users\anism\Documents\GitHub\PortfolioManager\PortfolioManager\obj\Debug\net8.0-windows\App.baml
+C:\Users\anism\Documents\GitHub\PortfolioManager\PortfolioManager\obj\Debug\net8.0-windows\PortfolioManager_Content.g.cs

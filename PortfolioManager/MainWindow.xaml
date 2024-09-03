@@ -49,10 +49,17 @@
         <Grid Grid.Row="0">
             <DockPanel>
                 <Menu DockPanel.Dock="Top">
+
+                    <MenuItem Header="_Login">
+                        <MenuItem Click="LoginButton_Click" Header="Login" />
+
+                    </MenuItem>
                     <MenuItem Header="_File">
+
                         <MenuItem Click="PublishButton_Click" Header="Publish" />
                         <MenuItem Click="Redownload_Click" Header="Re-Download Page" />
                         <MenuItem Click="ExitApplication_Click" Header="_Exit" />
+
                     </MenuItem>
                     <MenuItem Header="_Edit">
                         <MenuItem Click="FilterMenu_Click" Header="Manage Filter" />

@@ -30,14 +30,21 @@ C:\Users\anism\Documents\Visual Studio\Release\net8.0-windows\PortfolioManager.d
 C:\Users\anism\Documents\Visual Studio\Release\net8.0-windows\PortfolioManager.runtimeconfig.json
 C:\Users\anism\Documents\Visual Studio\Release\net8.0-windows\PortfolioManager.dll
 C:\Users\anism\Documents\Visual Studio\Release\net8.0-windows\PortfolioManager.pdb
+C:\Users\anism\Documents\Visual Studio Builds\PortfolioManager\Release\net8.0-windows\PortfolioManager.exe
+C:\Users\anism\Documents\Visual Studio Builds\PortfolioManager\Release\net8.0-windows\PortfolioManager.deps.json
+C:\Users\anism\Documents\Visual Studio Builds\PortfolioManager\Release\net8.0-windows\PortfolioManager.runtimeconfig.json
+C:\Users\anism\Documents\Visual Studio Builds\PortfolioManager\Release\net8.0-windows\PortfolioManager.dll
+C:\Users\anism\Documents\Visual Studio Builds\PortfolioManager\Release\net8.0-windows\PortfolioManager.pdb
 C:\Users\anism\Documents\GitHub\PortfolioManager\PortfolioManager\obj\Release\net8.0-windows\PortfolioManager.csproj.AssemblyReference.cache
 C:\Users\anism\Documents\GitHub\PortfolioManager\PortfolioManager\obj\Release\net8.0-windows\MainWindow.baml
 C:\Users\anism\Documents\GitHub\PortfolioManager\PortfolioManager\obj\Release\net8.0-windows\FilterPopup.g.cs
 C:\Users\anism\Documents\GitHub\PortfolioManager\PortfolioManager\obj\Release\net8.0-windows\LoginPopup.g.cs
 C:\Users\anism\Documents\GitHub\PortfolioManager\PortfolioManager\obj\Release\net8.0-windows\MainWindow.g.cs
 C:\Users\anism\Documents\GitHub\PortfolioManager\PortfolioManager\obj\Release\net8.0-windows\App.g.cs
+C:\Users\anism\Documents\GitHub\PortfolioManager\PortfolioManager\obj\Release\net8.0-windows\PortfolioManager_Content.g.cs
 C:\Users\anism\Documents\GitHub\PortfolioManager\PortfolioManager\obj\Release\net8.0-windows\PortfolioManager_MarkupCompile.cache
 C:\Users\anism\Documents\GitHub\PortfolioManager\PortfolioManager\obj\Release\net8.0-windows\PortfolioManager_MarkupCompile.lref
+C:\Users\anism\Documents\GitHub\PortfolioManager\PortfolioManager\obj\Release\net8.0-windows\App.baml
 C:\Users\anism\Documents\GitHub\PortfolioManager\PortfolioManager\obj\Release\net8.0-windows\FilterPopup.baml
 C:\Users\anism\Documents\GitHub\PortfolioManager\PortfolioManager\obj\Release\net8.0-windows\LoginPopup.baml
 C:\Users\anism\Documents\GitHub\PortfolioManager\PortfolioManager\obj\Release\net8.0-windows\PortfolioManager.g.resources

@@ -7,11 +7,19 @@
     <ImplicitUsings>enable</ImplicitUsings>
     <UseWPF>true</UseWPF>
     <BaseOutputPath>C:\Users\anism\Documents\Visual Studio Builds\PortfolioManager</BaseOutputPath>
+    <Title>PortfolioManager</Title>
+    <PackageIcon>PortfolioManager.ico</PackageIcon>
+    <ApplicationIcon>PortfolioManager.ico</ApplicationIcon>
   </PropertyGroup>
 
   <ItemGroup>
     <None Remove="fonts\Arrow7.ttf" />
     <None Remove="img\addPanel.jpg" />
+    <None Remove="PortfolioManager.ico" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Content Include="PortfolioManager.ico" />
   </ItemGroup>
 
   <ItemGroup>
@@ -23,6 +31,7 @@
   <ItemGroup>
     <Resource Include="fonts\Arrow7.ttf" />
     <Resource Include="img\addPanel.jpg" />
+    <Resource Include="PortfolioManager.ico" />
   </ItemGroup>
 
 </Project>
